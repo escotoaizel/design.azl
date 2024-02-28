@@ -1,7 +1,9 @@
-import { Divider } from "@mui/material";
+// import { Divider } from "@mui/material";
 import "./App.css";
+import ContactMe from "./components/ContactMe";
 import Homepage from "./components/Homepage";
 import PersonalProjects from "./components/PersonalProjects";
+import TheDesigner from "./components/TheDesigner";
 import Footer from "./layouts/Footer";
 import Header from "./layouts/Header";
 
@@ -11,13 +13,9 @@ function App() {
       {/* put the header and footer */}
       <Header />
       <Homepage />
-      <Divider
-        sx={{
-          height: ".2px",
-          backgroundColor: "gray",
-        }}
-      />
       <PersonalProjects />
+      <TheDesigner />
+      <ContactMe />
       <Footer />
     </>
   );

@@ -1,20 +1,20 @@
 import { Box, Button, Typography } from "@mui/material";
-import canva_icon from "../assets/canva_icon.svg";
-import figma_icon from "../assets/figma_icon.svg";
-import illustrator_icon from "../assets/illustrator_icon.svg";
-import photoshop_icon from "../assets/photoshop_icon.svg";
-import powerpoint_icon from "../assets/powerpoint_icon.svg";
-import xd_icon from "../assets/xd_icon.svg";
+// import canva_icon from "../assets/canva_icon.svg";
+// import figma_icon from "../assets/figma_icon.svg";
+// import illustrator_icon from "../assets/illustrator_icon.svg";
+// import photoshop_icon from "../assets/photoshop_icon.svg";
+// import powerpoint_icon from "../assets/powerpoint_icon.svg";
+import title_photo from "../assets/title_photo.png";
+// import xd_icon from "../assets/xd_icon.svg";
 
 const Homepage = () => {
   return (
     <>
       <Box
         sx={{
-          padding: "212px 100px",
+          padding: "151px 100px 235px 100px",
           display: "flex",
           justifyContent: "center",
-          alignItems: "center",
           flexDirection: "column",
           gap: "40px",
         }}
@@ -22,35 +22,55 @@ const Homepage = () => {
         <Typography variant="h5" color="initial">
           Hi! I’m Aizel, a freelance
         </Typography>
-        <Typography
-          fontSize={"110px"}
-          color="initial"
-          fontFamily={"Monument Extended"}
-        >
-          UI/UX DESIGNER
-        </Typography>
+        <Box>
+          <Box
+            display={"flex"}
+            alignItems={"center"}
+            justifyContent={"space-between"}
+          >
+            <Typography
+              fontSize={"170px"}
+              color="initial"
+              fontFamily={"Monument Extended"}
+              lineHeight={"1"}
+            >
+              UX
+            </Typography>
+            <img
+              src={title_photo}
+              style={{
+                height: "100%",
+              }}
+              alt="title photo"
+            />
+          </Box>
+          <Typography
+            fontSize={"170px"}
+            color="initial"
+            fontFamily={"Monument Extended"}
+            lineHeight={"1"}
+          >
+            DESIGNER
+          </Typography>
+        </Box>
         <Box
           sx={{
-            display: "flex",
-            justifyContent: "space-evenly",
             width: "100%",
           }}
         >
-          <Box gap={"10px"} display={"flex"}>
-            <img src={xd_icon} alt="xd icon" />
-            <img src={illustrator_icon} alt="illustrator icon" />
-            <img src={photoshop_icon} alt="photoshop icon" />
-          </Box>
           <Typography variant="h5" color="initial">
-            based in Pampanga, Philippines
+            I specialize in creating intuitive and visually compelling digital
+            interfaces to elevate user experiences.
           </Typography>
-          <Box gap={"10px"} display={"flex"}>
-            <img src={figma_icon} alt="figma icon" />
-            <img src={canva_icon} alt="canva icon" />
-            <img src={powerpoint_icon} alt="powerpoint icon" />
-          </Box>
         </Box>
-        <Box sx={{ width: "100%", display: "flex", justifyContent: "center" }}>
+        <Box
+          sx={{
+            width: "100%",
+            display: "flex",
+            justifyContent: "center",
+            marginTop: "40px",
+          }}
+        >
           <Button
             variant="contained"
             color="primary"
@@ -58,7 +78,7 @@ const Homepage = () => {
               width: "350px",
               fontSize: "20px",
               borderRadius: "8px",
-              padding: "10px 48px",
+              padding: "12px 48px",
               backgroundColor: "black",
               display: "flex",
               justifyContent: "center",
