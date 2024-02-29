@@ -1,5 +1,5 @@
+import My_Portrait from "@/assets/My_Portrait.png";
 import { Box, Typography } from "@mui/material";
-import My_Portrait from "../assets/My_Portrait.png";
 
 const TheDesigner = () => {
   return (

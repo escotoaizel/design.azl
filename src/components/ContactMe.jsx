@@ -1,12 +1,12 @@
+import dribble_icon from "@/assets/dribble_icon.svg";
+import email_icon from "@/assets/email_icon.svg";
+import instagram_icon from "@/assets/instagram_icon.svg";
+import internet_icon from "@/assets/internet_icon.svg";
+import linkedIn_icon from "@/assets/linkedIn_icon.svg";
+import location_icon from "@/assets/location_icon.svg";
+import send_icon from "@/assets/send_icon.svg";
 import { ValidationError, useForm } from "@formspree/react";
 import { Box, Button, TextField, Typography } from "@mui/material";
-import dribble_icon from "../assets/dribble_icon.svg";
-import email_icon from "../assets/email_icon.svg";
-import instagram_icon from "../assets/instagram_icon.svg";
-import internet_icon from "../assets/internet_icon.svg";
-import linkedIn_icon from "../assets/linkedIn_icon.svg";
-import location_icon from "../assets/location_icon.svg";
-import send_icon from "../assets/send_icon.svg";
 
 const ContactMe = () => {
   const [state, handleSubmit] = useForm("xzblnydb");

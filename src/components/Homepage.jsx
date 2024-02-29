@@ -1,11 +1,5 @@
+import title_photo from "@/assets/title_photo.png";
 import { Box, Button, Typography } from "@mui/material";
-// import canva_icon from "../assets/canva_icon.svg";
-// import figma_icon from "../assets/figma_icon.svg";
-// import illustrator_icon from "../assets/illustrator_icon.svg";
-// import photoshop_icon from "../assets/photoshop_icon.svg";
-// import powerpoint_icon from "../assets/powerpoint_icon.svg";
-import title_photo from "../assets/title_photo.png";
-// import xd_icon from "../assets/xd_icon.svg";
 
 const Homepage = () => {
   return (

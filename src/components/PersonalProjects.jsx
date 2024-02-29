@@ -1,7 +1,7 @@
+import EDC_Thumbnail from "@/assets/EDC_Thumbnail.png";
+import LCC_Thumbnail from "@/assets/LCC_Thumbnail.png";
+import Veritru_Thumbnail from "@/assets/Veritru_Thumbnail.png";
 import { Box, Typography } from "@mui/material";
-import EDC_Thumbnail from "../assets/EDC_Thumbnail.png";
-import LCC_Thumbnail from "../assets/LCC_Thumbnail.png";
-import Veritru_Thumbnail from "../assets/Veritru_Thumbnail.png";
 
 const PersonalProjects = () => {
   // const projects = [
