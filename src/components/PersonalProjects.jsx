@@ -1,6 +1,6 @@
 import EDC_Thumbnail from "@/assets/EDC_Thumbnail.png";
 import LCC_Thumbnail from "@/assets/LCC_Thumbnail.png";
-// import Veritru_Thumbnail from "@/assets/Veritru_Thumbnail.png";
+import Veritru_Thumbnail from "@/assets/Veritru_Photo.png";
 import { Box, Typography } from "@mui/material";
 
 const PersonalProjects = () => {
@@ -98,11 +98,11 @@ const PersonalProjects = () => {
             style={{ width: "100%" }}
             alt="EDC Thumbnail"
           />
-          {/* <img
+          <img
             src={Veritru_Thumbnail}
             style={{ width: "100%" }}
             alt="Veritru Thumbnail"
-          /> */}
+          />
         </Box>
       </Box>
     </>
