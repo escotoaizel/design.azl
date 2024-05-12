@@ -14,7 +14,7 @@ const theme = createTheme({
     },
   },
   typography: {
-    fontFamily: ["Poppins", "sans-serif", "Monument Extended"].join(","),
+    fontFamily: "Mona",
     button: {
       justifyContent: "left",
       textTransform: "none",

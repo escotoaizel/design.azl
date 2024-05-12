@@ -1,4 +1,5 @@
-import My_Portrait from "@/assets/My_Portrait.png";
+import Personal_Photo from "@/assets/Personal_Photo.png";
+import handwave from "@/assets/handwave.svg";
 import { Box, Typography } from "@mui/material";
 
 const TheDesigner = () => {
@@ -6,91 +7,95 @@ const TheDesigner = () => {
     <>
       <Box
         sx={{
-          padding: "0 100px 212px 100px",
+          padding: {
+            xs: "0 24px 60px 24px",
+            sm: "0 18px 72px 32px",
+            md: "0 100px 96px 100px",
+          },
           display: "flex",
           justifyContent: "center",
           alignItems: "center",
           flexDirection: "column",
-          gap: "50px",
         }}
       >
-        <Box display={"flex"} gap={"134px"} alignItems={"end"} width={"100%"}>
-          <Box>
-            <Typography
-              fontSize={"60px"}
-              fontFamily={"Monument Extended"}
-              lineHeight={"1"}
-              color="secondary"
-              style={{
-                WebkitTextStrokeWidth: "1px",
-                WebkitTextStrokeColor: "black",
-              }}
-            >
-              THE
-            </Typography>
-            <Typography
-              fontSize={"80px"}
-              lineHeight={"1"}
-              color="initial"
-              fontFamily={"Monument Extended"}
-            >
-              DESIGNER
-            </Typography>
-          </Box>
-          <Box
-            height={"38px"}
-            width={"100%"}
-            marginRight={"-100px"}
-            marginBottom={"18px"}
-            sx={{
-              backgroundColor: "#212121",
+        <Box display={"flex"} alignItems={"end"} width={"100%"} zIndex={"1"}>
+          <Typography
+            fontSize={{
+              xs: "20px",
+              sm: "24px",
+              md: "30px",
             }}
-          ></Box>
+            fontWeight={600}
+            color="initial"
+          >
+            About Me
+          </Typography>
         </Box>
         <Box
           sx={{
-            padding: "100px 0",
             display: "flex",
+            flexDirection: {
+              xs: "column",
+              sm: "row",
+            },
             justifyContent: "space-between",
-            gap: "15%",
+            gap: {
+              sm: "28px",
+              md: "15%",
+            },
             width: "100%",
+            marginTop: {
+              sm: "0px",
+              md: "-45px",
+            },
           }}
         >
           <Box
             sx={{
-              paddingY: "111px",
-              width: "50%",
+              paddingTop: {
+                xs: "24px",
+                sm: "36px",
+                md: "111px",
+              },
+              width: {
+                xs: "100%",
+                sm: "50%",
+              },
             }}
           >
+            <Typography variant="body1" color="initial" marginBottom={"24px"}>
+              Hi <img src={handwave} />, I&apos;m Aizel
+            </Typography>
             <Typography variant="body1" color="initial" lineHeight={"1.5"}>
-              As an adept <strong>UI/UX designer</strong>, I specialize in
-              creating intuitive and visually compelling digital interfaces to
-              elevate user experiences. Alongside, my expertise extends to
-              <strong> social media graphic design</strong>, where I leverage
-              creativity to bring visual concepts to life. I work seamlessly
-              with my daily-driver design tools such as Figma for collaborative
-              prototyping, Adobe Illustrator for precise graphic design, and
-              Canva for creating engaging visuals.
+              As an adept UI/UX designer, I specialize in creating intuitive and
+              visually compelling digital interfaces to elevate user
+              experiences. My expertise extends to Graphic Design, where I
+              leverage creativity to bring visual concepts to life. I work
+              seamlessly with my daily-driver design tools such as Figma for UI
+              designs and collaborative prototyping, Adobe Photoshop for
+              creating engaging visuals, and Canva for precise graphic design.
             </Typography>
             <Typography variant="body1" marginTop={"40px"} lineHeight={"1.5"}>
               I bring hands-on experience from a dynamic role where I
               contributed significantly to the design development of building AI
-              video-generating website, and in creating Web3 website with
-              seamless integration of blockchain technology.
+              applications, and in creating Web3 website with integration of
+              blockchain technology.
             </Typography>
           </Box>
           <Box
             sx={{
-              height: "100%",
+              width: {
+                sm: "346px",
+                md: "420px",
+              },
+              padding: {
+                xs: "24px 0 0 0",
+                sm: "90px 0 0 0",
+                md: "0 89px 0 0",
+              },
             }}
           >
-            <img
-              style={{
-                width: "100%",
-                height: "100%",
-              }}
-              src={My_Portrait}
-            />
+            <img style={{ width: "100%" }} src={Personal_Photo} />
           </Box>
         </Box>
       </Box>
