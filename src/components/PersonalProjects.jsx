@@ -112,8 +112,8 @@ const PersonalProjects = forwardRef((props, ref) => {
         key={"projects"}
         sx={{
           padding: {
-            xs: "48px 24px 72px 24px",
-            sm: "60px 20px 72px 20px",
+            xs: "48px 24px 0px 24px",
+            sm: "60px 20px 0px 20px",
             md: "96px 100px 96px 100px",
           },
           display: "flex",
@@ -229,7 +229,7 @@ const PersonalProjects = forwardRef((props, ref) => {
                     <Typography
                       sx={{
                         fontSize: {
-                          xs: "12px",
+                          xs: "14px",
                           sm: "14px",
                           md: "16px",
                         },
@@ -253,7 +253,7 @@ const PersonalProjects = forwardRef((props, ref) => {
                       >
                         <Typography
                           fontSize={{
-                            xs: "10px",
+                            xs: "12px",
                             sm: "12px",
                             md: "14px",
                           }}
