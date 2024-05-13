@@ -11,42 +11,76 @@ import { Divider } from "@mui/material";
 import { useRef, useState } from "react";
 
 function App() {
-  const sectionRefs = useRef([]);
+  const sectionRefs = {
+    home: useRef(null),
+    projects: useRef(null),
+    about: useRef(null),
+    contact: useRef(null),
+  };
   const [openMenu, setOpenMenu] = useState(false);
 
   const handleButtonClick = (sectionIndex) => {
-    sectionRefs.current[sectionIndex]?.scrollIntoView({ behavior: "smooth" });
+    console.log(sectionIndex);
+    const sectionRef = sectionRefs[sectionIndex];
+    if (sectionRef && sectionRef.current) {
+      const scrollPosition = sectionRef.current.offsetTop - 75;
+      window.scrollTo({
+        top: scrollPosition,
+        behavior: "smooth",
+      });
+    }
   };
 
   const handleOpenMenu = () => {
     setOpenMenu(!openMenu);
   };
 
+  const handleDownloadResume = () => {
+    const resumeUrl = "./assets/pdfs/Escoto_Aizel_Resume.pdf";
+    const link = document.createElement("a");
+    link.href = resumeUrl;
+    link.download = "Escoto_Aizel_Resume.pdf";
+    link.click();
+  };
+
   return (
     <>
-      {/* put the header and footer */}
-      <Menu openMenu={openMenu} handleOpenMenu={handleOpenMenu} />
+      <Menu
+        openMenu={openMenu}
+        handleOpenMenu={handleOpenMenu}
+        handleDownloadResume={handleDownloadResume}
+        handleButtonClick={handleButtonClick}
+      />
       <Header
+        handleDownloadResume={handleDownloadResume}
         handleButtonClick={handleButtonClick}
         handleOpenMenu={handleOpenMenu}
       />
-      <Homepage ref={(el) => (sectionRefs.current[0] = el)} />
+      <Homepage
+        ref={sectionRefs.home}
+        id={"home"}
+        handleButtonClick={handleButtonClick}
+      />
       <Divider
         sx={{
           borderBottomWidth: "2px",
         }}
       />
-      <PersonalProjects ref={(el) => (sectionRefs.current[1] = el)} />
-      <TheDesigner ref={(el) => (sectionRefs.current[2] = el)} />
+      <PersonalProjects ref={sectionRefs.projects} id={"projects"} />
       <Divider
         sx={{
           borderBottomWidth: "2px",
         }}
       />
-      <ContactMe ref={(el) => (sectionRefs.current[3] = el)} />
+      <TheDesigner ref={sectionRefs.about} id={"about"} />
+      <Divider
+        sx={{
+          borderBottomWidth: "2px",
+        }}
+      />
+      <ContactMe ref={sectionRefs.contact} id={"contact"} />
       <Footer />
     </>
   );
 }
-
 export default App;

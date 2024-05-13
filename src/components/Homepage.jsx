@@ -7,10 +7,12 @@ import kitt_icon from "@/assets/kitt_icon.svg";
 import photoshop_icon from "@/assets/photoshop_icon.svg";
 import xd_icon from "@/assets/xd_icon.svg";
 import { Box, Button, Typography } from "@mui/material";
+import PropTypes from "prop-types";
+import { forwardRef } from "react";
 
-const Homepage = () => {
+const Homepage = forwardRef((props, ref) => {
   return (
-    <>
+    <div ref={ref}>
       <Box
         sx={{
           height: {
@@ -183,6 +185,7 @@ const Homepage = () => {
                 justifyContent: "center",
               }}
               disableElevation
+              onClick={() => props.handleButtonClick("projects")}
             >
               Projects
             </Button>
@@ -215,6 +218,7 @@ const Homepage = () => {
                 justifyContent: "center",
               }}
               disableElevation
+              onClick={() => props.handleButtonClick("contact")}
             >
               Contact
             </Button>
@@ -284,11 +288,11 @@ const Homepage = () => {
                 style={{
                   color: "black",
                 }}
-                href="https://www.instagram.com/design.azl/"
+                href="https://dribbble.com/aizelescoto/"
                 target="_blank"
                 rel="noreferrer"
               >
-                Dribble
+                Dribbble
               </a>
             </Typography>
           </Box>
@@ -398,16 +402,22 @@ const Homepage = () => {
           sx={{
             position: "absolute",
             right: {
-              xs: "-50px",
-              sm: "-20px",
-              md: "20px",
+              xs: "0px",
+              sm: "0px",
+              md: "0px",
+            },
+            overflow: "hidden",
+            width: {
+              xs: "50px",
+              sm: "70px",
+              md: "90px",
             },
             height: {
               xs: "127px",
               md: "150px",
             },
             top: {
-              xs: "160px",
+              xs: "180px",
               sm: "300px",
               md: "350px",
             },
@@ -416,8 +426,14 @@ const Homepage = () => {
           <img src={Shooting_Star2} height={"100%"} alt="star" />
         </Box>
       </Box>
-    </>
+    </div>
   );
+});
+
+Homepage.propTypes = {
+  handleButtonClick: PropTypes.func.isRequired,
 };
+
+Homepage.displayName = "Homepage";
 
 export default Homepage;

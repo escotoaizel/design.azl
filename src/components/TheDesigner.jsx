@@ -1,16 +1,17 @@
 import Personal_Photo from "@/assets/Personal_Photo.png";
 import handwave from "@/assets/handwave.svg";
 import { Box, Typography } from "@mui/material";
+import { forwardRef } from "react";
 
-const TheDesigner = () => {
+const TheDesigner = forwardRef((props, ref) => {
   return (
-    <>
+    <div ref={ref}>
       <Box
         sx={{
           padding: {
-            xs: "0 24px 60px 24px",
-            sm: "0 18px 72px 32px",
-            md: "0 100px 96px 100px",
+            xs: "48px 24px 60px 24px",
+            sm: "72px 18px 72px 32px",
+            md: "100px 100px 96px 100px",
           },
           display: "flex",
           justifyContent: "center",
@@ -99,8 +100,10 @@ const TheDesigner = () => {
           </Box>
         </Box>
       </Box>
-    </>
+    </div>
   );
-};
+});
+
+TheDesigner.displayName = "TheDesigner";
 
 export default TheDesigner;

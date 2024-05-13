@@ -2,31 +2,66 @@ import CloseIcon from "@mui/icons-material/Close";
 import { Box, Button, Drawer, Typography } from "@mui/material";
 import PropTypes from "prop-types";
 
-const Menu = ({ openMenu, handleOpenMenu }) => {
+const Menu = ({
+  openMenu,
+  handleOpenMenu,
+  handleButtonClick,
+  handleDownloadResume,
+}) => {
   return (
     <>
       <Drawer
         open={openMenu}
-        padding={"88px 25px 0px 25px"}
-        display={"flex"}
-        backgroundColor={"lightgrey"}
-        width={"100vw"}
+        anchor="right"
+        sx={{
+          width: "100%",
+          "& .MuiDrawer-paper": {
+            width: "100%",
+          },
+        }}
       >
+        <Box width={"100%"} textAlign={"right"} padding={"20px"}>
+          <CloseIcon
+            onClick={handleOpenMenu}
+            sx={{
+              fontSize: "24px",
+              color: "black",
+              cursor: "pointer",
+            }}
+          />
+        </Box>
         <Box
           display={"flex"}
           flexDirection={"column"}
-          gap={"20px"}
-          width={"100%"}
-          paddingTop={"50px"}
+          gap={"25px"}
+          padding={"50px 25px"}
           textAlign={"center"}
+          sx={{
+            width: "100%",
+            "& .MuiDrawer-paper": {
+              width: "100%",
+            },
+          }}
         >
-          <Box>
+          <Box
+            onClick={() => {
+              handleButtonClick("projects"), handleOpenMenu();
+            }}
+          >
             <Typography>Projects</Typography>
           </Box>
-          <Box>
+          <Box
+            onClick={() => {
+              handleButtonClick("about"), handleOpenMenu();
+            }}
+          >
             <Typography>About</Typography>
           </Box>
-          <Box>
+          <Box
+            onClick={() => {
+              handleButtonClick("contact"), handleOpenMenu();
+            }}
+          >
             <Typography>Contact</Typography>
           </Box>
           <Button
@@ -40,14 +75,11 @@ const Menu = ({ openMenu, handleOpenMenu }) => {
               justifyContent: "center",
             }}
             disableElevation
+            onClick={handleDownloadResume}
           >
             Resume
           </Button>
         </Box>
-        <CloseIcon
-          onClick={handleOpenMenu}
-          sx={{ fontSize: "24px", color: "black", cursor: "pointer" }}
-        />
       </Drawer>
     </>
   );
@@ -56,6 +88,8 @@ const Menu = ({ openMenu, handleOpenMenu }) => {
 Menu.propTypes = {
   openMenu: PropTypes.bool.isRequired,
   handleOpenMenu: PropTypes.func.isRequired,
+  handleButtonClick: PropTypes.func.isRequired,
+  handleDownloadResume: PropTypes.func.isRequired,
 };
 
 export default Menu;

@@ -3,7 +3,11 @@ import { AppBar, Box, Button, Typography } from "@mui/material";
 import PropTypes from "prop-types";
 import aizel_logo from "../assets/AE Logo.png";
 
-const Header = ({ handleButtonClick, handleOpenMenu }) => {
+const Header = ({
+  handleButtonClick,
+  handleOpenMenu,
+  handleDownloadResume,
+}) => {
   return (
     <AppBar
       position="sticky"
@@ -32,6 +36,10 @@ const Header = ({ handleButtonClick, handleOpenMenu }) => {
             xs: "35px",
             md: "45px",
           }}
+          sx={{
+            cursor: "pointer",
+          }}
+          onClick={() => handleButtonClick("home")}
         >
           <img src={aizel_logo} alt="aizel logo" style={{ height: "100%" }} />
         </Box>
@@ -52,7 +60,7 @@ const Header = ({ handleButtonClick, handleOpenMenu }) => {
               },
             }}
           >
-            <Button onClick={() => handleButtonClick("section1")}>
+            <Button onClick={() => handleButtonClick("projects")}>
               <Typography
                 href="#"
                 color="primary"
@@ -61,7 +69,7 @@ const Header = ({ handleButtonClick, handleOpenMenu }) => {
                 Projects
               </Typography>
             </Button>
-            <Button onClick={() => handleButtonClick("section1")}>
+            <Button onClick={() => handleButtonClick("about")}>
               <Typography
                 href="#"
                 color="primary"
@@ -70,7 +78,7 @@ const Header = ({ handleButtonClick, handleOpenMenu }) => {
                 About
               </Typography>
             </Button>
-            <Button onClick={() => handleButtonClick("section1")}>
+            <Button onClick={() => handleButtonClick("contact")}>
               <Typography
                 href="#"
                 color="primary"
@@ -93,6 +101,7 @@ const Header = ({ handleButtonClick, handleOpenMenu }) => {
                   backgroundColor: "black",
                 }}
                 disableElevation
+                onClick={handleDownloadResume}
               >
                 Resume
               </Button>
@@ -118,6 +127,7 @@ const Header = ({ handleButtonClick, handleOpenMenu }) => {
 Header.propTypes = {
   handleButtonClick: PropTypes.func.isRequired,
   handleOpenMenu: PropTypes.func.isRequired,
+  handleDownloadResume: PropTypes.func.isRequired,
 };
 
 export default Header;

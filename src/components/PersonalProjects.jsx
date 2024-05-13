@@ -20,14 +20,12 @@ import canva_small_icon from "@/assets/canva_small_icon.svg";
 import figma_icon from "@/assets/figma_icon.svg";
 import photoshop_icon from "@/assets/photoshop_icon.svg";
 import { Box, Divider, Grid, Tab, Tabs, Typography } from "@mui/material";
-import PropTypes from "prop-types";
 import { forwardRef, useState } from "react";
 
 const PersonalProjects = forwardRef((props, ref) => {
-  const [tabValue, setTabValue] = useState("uiDesigns");
-
   const uiDesigns = [
     {
+      id: 1,
       title: "VisionSidekick",
       type: "(Work Project)",
       tags: ["UI/UX Design", "Vision Board", "AI"],
@@ -41,6 +39,7 @@ const PersonalProjects = forwardRef((props, ref) => {
       supportingImage: [VS_Mockup_PC, VS_Mockup_Mobile],
     },
     {
+      id: 2,
       title: "Every Decant Counts",
       type: "(Side Project)",
       tags: ["UI/UX Design", "Ecommerce"],
@@ -54,8 +53,9 @@ const PersonalProjects = forwardRef((props, ref) => {
       supportingImage: [EDC_Mockup_PC, EDC_Mockup_Mobile],
     },
     {
+      id: 3,
       title: "Veritru",
-      type: "(Capstone Project))",
+      type: "(Capstone Project)",
       tags: ["UI/UX Design", "Blockchain", "Web3"],
       role: "UI/UX Designer & Researcher",
       tools: [figma_icon, canva_small_icon],
@@ -69,6 +69,7 @@ const PersonalProjects = forwardRef((props, ref) => {
   ];
   const graphics = [
     {
+      id: 4,
       title: "La Calle Café",
       type: "(Work Project)",
       tags: ["Social Media Graphic Design"],
@@ -80,6 +81,7 @@ const PersonalProjects = forwardRef((props, ref) => {
       mobileImage: La_Calle_Thumbnail_Mobile,
     },
     {
+      id: 5,
       title: "Catventures",
       type: "(Side Project)",
       tags: ["Social Media Graphic Design"],
@@ -93,6 +95,7 @@ const PersonalProjects = forwardRef((props, ref) => {
   ];
 
   const [tabContent, setTabContent] = useState(uiDesigns);
+  const [tabValue, setTabValue] = useState("uiDesigns");
 
   const handleTabChange = (event, newValue) => {
     if (newValue === "graphics") {
@@ -106,6 +109,7 @@ const PersonalProjects = forwardRef((props, ref) => {
   return (
     <div ref={ref}>
       <Box
+        key={"projects"}
         sx={{
           padding: {
             xs: "48px 24px 72px 24px",
@@ -196,10 +200,9 @@ const PersonalProjects = forwardRef((props, ref) => {
             </Tabs>
           </Box>
         </Box>
-        {tabContent.map((project) => (
-          <>
+        {tabContent.map((project, index) => (
+          <div key={project.id}>
             <Grid
-              key={project.title}
               container
               spacing={2}
               padding={{
@@ -210,7 +213,7 @@ const PersonalProjects = forwardRef((props, ref) => {
             >
               <Grid item xs={12} sm={12} md={6}>
                 <Box>
-                  <Box display={"flex"} gap={"10px"} alignItems={"end"}>
+                  <Box display={"flex"} gap={"5px"} alignItems={"end"}>
                     <Typography
                       color="initial"
                       sx={{
@@ -361,7 +364,6 @@ const PersonalProjects = forwardRef((props, ref) => {
             </Grid>
             <Grid
               container
-              xs={12}
               gap={{
                 xs: "16px",
                 sm: "25px",
@@ -372,6 +374,7 @@ const PersonalProjects = forwardRef((props, ref) => {
               }}
             >
               <Grid
+                item
                 xs={12}
                 display={{
                   xs: "none",
@@ -381,6 +384,7 @@ const PersonalProjects = forwardRef((props, ref) => {
                 <img src={project.mainImage} style={{ width: "100%" }} />{" "}
               </Grid>
               <Grid
+                item
                 xs={12}
                 display={{
                   xs: "flex",
@@ -419,13 +423,15 @@ const PersonalProjects = forwardRef((props, ref) => {
                 </Box>
               )}
             </Grid>
-            <Divider
-              sx={{
-                width: "100%",
-                borderBottomWidth: "2px",
-              }}
-            />
-          </>
+            {index !== tabContent.length - 1 && (
+              <Divider
+                sx={{
+                  width: "100%",
+                  borderBottomWidth: "2px",
+                }}
+              />
+            )}
+          </div>
         ))}
       </Box>
     </div>
@@ -433,9 +439,5 @@ const PersonalProjects = forwardRef((props, ref) => {
 });
 
 PersonalProjects.displayName = "PersonalProjects";
-
-PersonalProjects.propTypes = {
-  ref: PropTypes.func.isRequired,
-};
 
 export default PersonalProjects;

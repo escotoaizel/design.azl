@@ -1,14 +1,15 @@
-import dribble_icon from "@/assets/dribble_icon.svg";
+import dribbble_icon from "@/assets/dribbble_icon.svg";
 import email_icon from "@/assets/email_icon.svg";
 import instagram_icon from "@/assets/instagram_icon.svg";
 import internet_icon from "@/assets/internet_icon.svg";
 import linkedIn_icon from "@/assets/linkedIn_icon.svg";
 import Star2 from "@/assets/Star2.svg";
 import { Box, Hidden, Typography } from "@mui/material";
+import { forwardRef } from "react";
 
-const ContactMe = () => {
+const ContactMe = forwardRef((props, ref) => {
   return (
-    <>
+    <div ref={ref}>
       <Box
         sx={{
           padding: {
@@ -40,6 +41,7 @@ const ContactMe = () => {
             sx={{
               display: {
                 xs: "flex",
+                sm: "none",
               },
               height: {
                 xs: "27px",
@@ -203,15 +205,17 @@ const ContactMe = () => {
                     color: "inherit",
                   }}
                 >
-                  <img src={dribble_icon} alt="email icon" />
+                  <img src={dribbble_icon} alt="email icon" />
                 </a>
               </Box>
             </Box>
           </Box>
         </Box>
       </Box>
-    </>
+    </div>
   );
-};
+});
+
+ContactMe.displayName = "ContactMe";
 
 export default ContactMe;

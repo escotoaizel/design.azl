@@ -1,15 +1,23 @@
-#root {
-  width: auto;
-}
-
-html {
-  width: auto;
-  display: flex;
-}
-
-body {
+* {
   margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Set up default styles for root, html, and body */
+#root,
+html,
+body {
   width: 100%;
+}
+
+/* Media query for mobile and tablet */
+@media (max-width: 768px) {
+  /* Adjust width of root and body */
+  #root,
+  body {
+    width: 100%;
+  }
 }
 
 /* Scrollbar Design */
