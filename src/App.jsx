@@ -83,7 +83,11 @@ function App() {
         handleOpenMenu={handleOpenMenu}
         currentSection={currentSection}
       />
-      <Homepage ref={sectionRefs.home} id={"home"} />
+      <Homepage
+        ref={sectionRefs.home}
+        handleButtonClick={handleButtonClick}
+        id={"home"}
+      />
       <Divider
         sx={{
           borderBottomWidth: "2px",
