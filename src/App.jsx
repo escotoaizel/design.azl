@@ -36,7 +36,7 @@ function App() {
   };
 
   const handleDownloadResume = () => {
-    const resumeUrl = "/public/Escoto_Aizel_Resume.pdf";
+    const resumeUrl = "/Escoto_Aizel_Resume.pdf";
     const link = document.createElement("a");
     link.href = resumeUrl;
     link.download = "Escoto_Aizel_Resume.pdf";
