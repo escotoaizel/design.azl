@@ -36,11 +36,13 @@ function App() {
   };
 
   const handleDownloadResume = () => {
-    const resumeUrl = "./assets/pdfs/Escoto_Aizel_Resume.pdf";
+    const resumeUrl = "/public/Escoto_Aizel_Resume.pdf";
     const link = document.createElement("a");
     link.href = resumeUrl;
     link.download = "Escoto_Aizel_Resume.pdf";
+    document.body.appendChild(link);
     link.click();
+    document.body.removeChild(link);
   };
 
   return (
@@ -64,18 +66,24 @@ function App() {
       <Divider
         sx={{
           borderBottomWidth: "2px",
+          width: "95%",
+          margin: "auto",
         }}
       />
       <PersonalProjects ref={sectionRefs.projects} id={"projects"} />
       <Divider
         sx={{
           borderBottomWidth: "2px",
+          width: "95%",
+          margin: "auto",
         }}
       />
       <TheDesigner ref={sectionRefs.about} id={"about"} />
       <Divider
         sx={{
           borderBottomWidth: "2px",
+          width: "95%",
+          margin: "auto",
         }}
       />
       <ContactMe ref={sectionRefs.contact} id={"contact"} />

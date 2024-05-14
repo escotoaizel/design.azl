@@ -11,6 +11,10 @@ body {
   width: 100%;
 }
 
+body::-webkit-scrollbar {
+  display: none;
+}
+
 /* Media query for mobile and tablet */
 @media (max-width: 768px) {
   /* Adjust width of root and body */
@@ -18,28 +22,6 @@ body {
   body {
     width: 100%;
   }
-}
-
-/* Scrollbar Design */
-/* Firefox */
-* {
-  scrollbar-color: white black;
-}
-
-/* Chrome, Edge, and Safari  */
-*::-webkit-scrollbar {
-  width: 15px;
-}
-
-*::-webkit-scrollbar-track {
-  background: white;
-  border-radius: 5px;
-}
-
-*::-webkit-scrollbar-thumb {
-  background-color: white;
-  border-radius: 14px;
-  border: 3px solid black;
 }
 
 .logo {
