@@ -7,6 +7,7 @@ const Header = ({
   handleButtonClick,
   handleOpenMenu,
   handleDownloadResume,
+  currentSection,
 }) => {
   return (
     <AppBar
@@ -60,7 +61,21 @@ const Header = ({
               },
             }}
           >
-            <Button onClick={() => handleButtonClick("projects")}>
+            <Box
+              sx={{
+                cursor: "pointer",
+                ":hover": {
+                  borderBottom: "2px solid black",
+                  marginBottom: "-1px",
+                  transition: "all 0.1s ease-in-out",
+                },
+                borderBottom:
+                  currentSection === "projects" && "2px solid black",
+                marginBottom: currentSection === "-1px",
+                transition: "all 0.15s ease-in-out",
+              }}
+              onClick={() => handleButtonClick("projects")}
+            >
               <Typography
                 href="#"
                 color="primary"
@@ -68,8 +83,21 @@ const Header = ({
               >
                 Projects
               </Typography>
-            </Button>
-            <Button onClick={() => handleButtonClick("about")}>
+            </Box>
+            <Box
+              sx={{
+                cursor: "pointer",
+                ":hover": {
+                  borderBottom: "2px solid black",
+                  marginBottom: "-1px",
+                  transition: "all 0.1s ease-in-out",
+                },
+                borderBottom: currentSection === "about" && "2px solid black",
+                marginBottom: currentSection === "-1px",
+                transition: "all 0.15s ease-in-out",
+              }}
+              onClick={() => handleButtonClick("about")}
+            >
               <Typography
                 href="#"
                 color="primary"
@@ -77,8 +105,21 @@ const Header = ({
               >
                 About
               </Typography>
-            </Button>
-            <Button onClick={() => handleButtonClick("contact")}>
+            </Box>
+            <Box
+              sx={{
+                cursor: "pointer",
+                ":hover": {
+                  borderBottom: "2px solid black",
+                  marginBottom: "-1px",
+                  transition: "all 0.1s ease-in-out",
+                },
+                borderBottom: currentSection === "contact" && "2px solid black",
+                marginBottom: currentSection === "-1px",
+                transition: "all 0.15s ease-in-out",
+              }}
+              onClick={() => handleButtonClick("contact")}
+            >
               <Typography
                 href="#"
                 color="primary"
@@ -86,7 +127,7 @@ const Header = ({
               >
                 Contact
               </Typography>
-            </Button>
+            </Box>
             <li>
               <Button
                 variant="contained"
@@ -128,6 +169,7 @@ Header.propTypes = {
   handleButtonClick: PropTypes.func.isRequired,
   handleOpenMenu: PropTypes.func.isRequired,
   handleDownloadResume: PropTypes.func.isRequired,
+  currentSection: PropTypes.string.isRequired,
 };
 
 export default Header;

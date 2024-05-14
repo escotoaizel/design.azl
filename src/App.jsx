@@ -1,4 +1,3 @@
-// import { Divider } from "@mui/material";
 import "@/App.css";
 import ContactMe from "@/components/ContactMe";
 import Homepage from "@/components/Homepage";
@@ -8,7 +7,7 @@ import TheDesigner from "@/components/TheDesigner";
 import Footer from "@/layouts/Footer";
 import Header from "@/layouts/Header";
 import { Divider } from "@mui/material";
-import { useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 
 function App() {
   const sectionRefs = {
@@ -17,10 +16,11 @@ function App() {
     about: useRef(null),
     contact: useRef(null),
   };
+
   const [openMenu, setOpenMenu] = useState(false);
+  const [currentSection, setCurrentSection] = useState("home");
 
   const handleButtonClick = (sectionIndex) => {
-    console.log(sectionIndex);
     const sectionRef = sectionRefs[sectionIndex];
     if (sectionRef && sectionRef.current) {
       const scrollPosition = sectionRef.current.offsetTop - 75;
@@ -45,6 +45,29 @@ function App() {
     document.body.removeChild(link);
   };
 
+  const handleScroll = () => {
+    const scrollPosition = window.scrollY + 100;
+    const sectionEntries = Object.entries(sectionRefs);
+    for (const [section, ref] of sectionEntries) {
+      if (
+        ref.current &&
+        ref.current.offsetTop <= scrollPosition &&
+        ref.current.offsetTop + ref.current.offsetHeight > scrollPosition
+      ) {
+        setCurrentSection(section);
+        break;
+      }
+    }
+  };
+
+  useEffect(() => {
+    window.addEventListener("scroll", handleScroll);
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
+
   return (
     <>
       <Menu
@@ -52,17 +75,15 @@ function App() {
         handleOpenMenu={handleOpenMenu}
         handleDownloadResume={handleDownloadResume}
         handleButtonClick={handleButtonClick}
+        currentSection={currentSection}
       />
       <Header
         handleDownloadResume={handleDownloadResume}
         handleButtonClick={handleButtonClick}
         handleOpenMenu={handleOpenMenu}
+        currentSection={currentSection}
       />
-      <Homepage
-        ref={sectionRefs.home}
-        id={"home"}
-        handleButtonClick={handleButtonClick}
-      />
+      <Homepage ref={sectionRefs.home} id={"home"} />
       <Divider
         sx={{
           borderBottomWidth: "2px",
@@ -91,4 +112,5 @@ function App() {
     </>
   );
 }
+
 export default App;
