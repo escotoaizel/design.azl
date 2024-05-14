@@ -34,7 +34,15 @@ const ContactMe = forwardRef((props, ref) => {
             },
           }}
         >
-          <Typography fontSize={"30px"} fontWeight={600} color="initial">
+          <Typography
+            fontSize={{
+              xs: "20px",
+              sm: "24px",
+              md: "30px",
+            }}
+            fontWeight={600}
+            color="initial"
+          >
             Contact
           </Typography>
           <Box
