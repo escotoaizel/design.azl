@@ -33,7 +33,7 @@ const PersonalProjects = forwardRef((props, ref) => {
       tools: [figma_icon, canva_small_icon, photoshop_icon],
       description:
         "VisionSidekick, powered by DALL-E 3 AI technology, redefines goal visualization. Users select goal categories, answer tailored questions, and customize art and board styles. Effortlessly drag and drop selections onto vision boards with personalized generated images. This seamless process revolutionizes goal-setting, empowering users to manifest their dreams with precision and ease.",
-      link: "https://staging.visionsidekick.com/",
+      link: "https://visionsidekick.com/",
       mainImage: VS_Thumbnail,
       mobileImage: VS_Thumbnail_Mobile,
       supportingImage: [VS_Mockup_PC, VS_Mockup_Mobile],
