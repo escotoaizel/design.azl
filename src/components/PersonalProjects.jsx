@@ -414,7 +414,10 @@ const PersonalProjects = forwardRef((props, ref) => {
                                                     },
                                                 }}
                                             >
-                                                {project.title === "TradeDock"
+                                                {project.title ===
+                                                    "TradeDock" ||
+                                                project.title ===
+                                                    "Every Decant Counts"
                                                     ? "View Prototype"
                                                     : "View Website"}
                                             </ExternalLink>
