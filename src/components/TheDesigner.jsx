@@ -90,15 +90,6 @@ const TheDesigner = forwardRef((props, ref) => {
                             simplify complex workflows, and create products that
                             users actually enjoy using.
                         </Typography>
-                        <Typography
-                            variant="body1"
-                            marginTop={"24px"}
-                            lineHeight={"1.5"}
-                        >
-                            If you’re building a new product, redesigning an
-                            existing platform, or improving your website’s user
-                            experience, I would be happy to collaborate!
-                        </Typography>
                     </Box>
                     <Box
                         sx={{
