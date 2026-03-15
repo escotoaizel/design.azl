@@ -8,6 +8,8 @@ import Footer from "@/layouts/Footer";
 import Header from "@/layouts/Header";
 import { Divider } from "@mui/material";
 import { useEffect, useRef, useState } from "react";
+import AOS from "aos";
+import "aos/dist/aos.css";
 
 function App() {
   const sectionRefs = {
@@ -60,6 +62,65 @@ function App() {
     }
   };
 
+  // Prevent scroll restoration on refresh so the page stays at top when home animation plays
+  useEffect(() => {
+    if ("scrollRestoration" in history) {
+      history.scrollRestoration = "manual";
+    }
+    window.scrollTo(0, 0);
+    const raf = requestAnimationFrame(() => window.scrollTo(0, 0));
+    return () => cancelAnimationFrame(raf);
+  }, []);
+
+  useEffect(() => {
+    AOS.init({
+      duration: 700,
+      easing: "ease-out-cubic",
+      once: true,
+      offset: 80,
+      throttleDelay: 50,
+    });
+  }, []);
+
+  // On mobile, scroll events are often delayed; refresh AOS when scroll ends so animations trigger
+  useEffect(() => {
+    let scrollEndTimer;
+    const onScroll = () => {
+      clearTimeout(scrollEndTimer);
+      scrollEndTimer = setTimeout(() => {
+        if (typeof AOS?.refresh === "function") AOS.refresh();
+      }, 150);
+    };
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => {
+      clearTimeout(scrollEndTimer);
+      window.removeEventListener("scroll", onScroll);
+    };
+  }, []);
+
+  // After load, refresh AOS once so mobile viewport (e.g. address bar) is settled
+  useEffect(() => {
+    const t = setTimeout(() => {
+      if (typeof AOS?.refresh === "function") AOS.refresh();
+    }, 400);
+    return () => clearTimeout(t);
+  }, []);
+
+  // When mobile browser chrome (address bar) shows/hides, refresh so trigger positions are correct
+  useEffect(() => {
+    const vv = window.visualViewport;
+    if (!vv) return;
+    const onResize = () => {
+      if (typeof AOS?.refresh === "function") AOS.refresh();
+    };
+    vv.addEventListener("resize", onResize);
+    vv.addEventListener("scroll", onResize);
+    return () => {
+      vv.removeEventListener("resize", onResize);
+      vv.removeEventListener("scroll", onResize);
+    };
+  }, []);
+
   useEffect(() => {
     window.addEventListener("scroll", handleScroll);
     return () => {
@@ -89,6 +150,8 @@ function App() {
         id={"home"}
       />
       <Divider
+        data-aos="fade"
+        data-aos-duration="400"
         sx={{
           borderBottomWidth: "2px",
           width: "95%",
@@ -97,6 +160,8 @@ function App() {
       />
       <PersonalProjects ref={sectionRefs.projects} id={"projects"} />
       <Divider
+        data-aos="fade"
+        data-aos-duration="400"
         sx={{
           borderBottomWidth: "2px",
           width: "95%",
@@ -105,6 +170,8 @@ function App() {
       />
       <TheDesigner ref={sectionRefs.about} id={"about"} />
       <Divider
+        data-aos="fade"
+        data-aos-duration="400"
         sx={{
           borderBottomWidth: "2px",
           width: "95%",

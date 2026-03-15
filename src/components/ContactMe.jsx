@@ -9,7 +9,7 @@ import { forwardRef } from "react";
 
 const ContactMe = forwardRef((props, ref) => {
   return (
-    <div ref={ref}>
+    <div ref={ref} data-aos="fade-up" data-aos-duration="700">
       <Box
         sx={{
           padding: {
