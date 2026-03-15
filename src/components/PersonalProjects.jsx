@@ -31,7 +31,7 @@ const PersonalProjects = forwardRef((props, ref) => {
     const uiDesigns = [
         {
             id: 1,
-            title: "Trade Dock",
+            title: "TradeDock",
             type: "(Work Project)",
             tags: ["UI/UX Design", "Marketplace", "Construction"],
             role: "Lead UI/UX Designer",
@@ -40,7 +40,7 @@ const PersonalProjects = forwardRef((props, ref) => {
                 "TradeDock is a marketplace platform designed to connect contractors with skilled workers for short-term and long-term construction jobs. The goal was to simplify how contractors discover, book, and manage tradespeople while helping workers find reliable opportunities.\n\nThe platform combines profile verification, job listings, and direct communication in one place. Contractors can post jobs and shortlist workers based on skills, availability, and ratings, while workers can browse opportunities and accept projects that match their expertise.\n\nBy bringing hiring, scheduling, and communication into a single system, TradeDock aims to make workforce coordination faster and more transparent for both contractors and tradespeople.",
             link: "https://www.figma.com/proto/ZitJpl1uxJtAAqrPhCW8Cz/TradeDock---Master-Design-File?node-id=452-5302&viewport=-9479%2C-2213%2C0.63&t=ulu7kvNP1u3wL3W9-1&scaling=scale-down&content-scaling=fixed&starting-point-node-id=457%3A4892&show-proto-sidebar=1&page-id=1%3A4",
             mainImage: TD_Thumbnail,
-            mobileImage: TD_Thumbnail_Mobile,
+            mobileImage: TD_Thumbnail,
             supportingImage: [TD_Thumbnail_Mobile_2, TD_Thumbnail_Mobile],
         },
         {
@@ -414,7 +414,7 @@ const PersonalProjects = forwardRef((props, ref) => {
                                                     },
                                                 }}
                                             >
-                                                {project.title === "Trade Dock"
+                                                {project.title === "TradeDock"
                                                     ? "View Prototype"
                                                     : "View Website"}
                                             </ExternalLink>
